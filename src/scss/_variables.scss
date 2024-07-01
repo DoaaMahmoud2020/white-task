@@ -1,8 +1,21 @@
-$main-color: #130f40;
-$red-color: #eb4d4b;
+$main-color: #419187;
+$red-color: #419187;
 $gray-color: #666666;
 $light-bg: #f9f9f9;
 $orange: #e94d1f;
+$secondary: #1e2837;
+$primary: #0f1428;
+$primary-link: #419187;
+$secondary: #1e2837;
+$secondary-card: #283241;
+$secondary-link: #283241;
+$blue: #4b7deb;
+$purple: #828cf0;
+$danger: #4b7deb;
+$warning: #e6a037;
+$success: #5abe69;
+$white: #ffffff;
+$gray: #828ca0;
 $main-border-radius: 5px;
 $main-border: 0.1rem solid rgba(0, 0, 0, 0.3);
 $main-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
@@ -18,7 +31,7 @@ $main-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 @mixin btn-main {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   color: #fff;
   background-color: $red-color;
   border-radius: 4px;
@@ -31,7 +44,7 @@ $main-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   }
 }
 @mixin btn-secondary {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   color: #fff;
   background-color: $main-color;
   border-radius: 4px;
@@ -55,4 +68,23 @@ $main-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   object-fit: cover;
   object-position: center right;
+}
+
+.btn-main {
+  border-radius: 50rem !important;
+  color: white !important;
+  background-color: transparent !important;
+
+  &.btn-main-primary-link {
+    background-color: $primary-link !important;
+  }
+  &.btn-main-primary {
+    background-color: $primary !important;
+  }
+  &.btn-main-secondary {
+    background-color: $secondary-link !important;
+  }
+  &.btn-main-pill-top {
+    border-radius: 7px 7px 0 0 !important;
+  }
 }

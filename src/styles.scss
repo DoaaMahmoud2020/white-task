@@ -43,6 +43,7 @@ $white_task-theme: mat.define-theme((
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons&display=block");
 @import "variables";
+@import "layout";
 
 
 * {
@@ -58,7 +59,7 @@ $white_task-theme: mat.define-theme((
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 85%;
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
   overflow-x: hidden;
@@ -70,7 +71,7 @@ html::-webkit-scrollbar-track {
   background: #fff;
 }
 html::-webkit-scrollbar-thumb {
-  background: #eb4d4b;
+  background: $main-color;
   border-radius: 5rem;
 }
 .text-primary {
@@ -91,11 +92,6 @@ html::-webkit-scrollbar-thumb {
 @media (max-width: 450px) {
   html {
     font-size: 50%;
-  }
-  .special-Offer .banner .content {
-    h3 {
-      font-size: 2rem;
-    }
   }
 }
 
