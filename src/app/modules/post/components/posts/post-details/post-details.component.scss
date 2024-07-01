@@ -26,6 +26,7 @@
             font-size: 1.2rem;
             color: $gray;
             line-height: 2;
+            text-align: start;
         }
         .card-img-top {
             width: 17%;
@@ -33,7 +34,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         .image-cover {
-            @include image-cover(45px, 45px, -35px);
+            @include image-cover(45px, 45px, 0px);
         }
     }
     .comment-card {
