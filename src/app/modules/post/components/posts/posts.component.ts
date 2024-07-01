@@ -61,7 +61,9 @@ export class PostsComponent {
       });
   }
   onSuccess(response: IPost[]) {
-    this.postsList = response;
+    this.postsList = response.filter((m) => {
+      return (m.userId === 1);
+    });
     this.filteredPosts = this.postsList;
   }
   getAllPostsWithFilter(): void {

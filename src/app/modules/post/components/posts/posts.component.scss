@@ -10,6 +10,13 @@
     }
   }
 }
+::ng-deep {
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: $secondary !important;
+  }
+  .mat-mdc-form-field-icon-prefix > .mat-icon,
+  .mat-mdc-form-field-icon-suffix > .mat-icon {
+    color: $gray;
+  }
+}
 // End Section Posts
-
-
