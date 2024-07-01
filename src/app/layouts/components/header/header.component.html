@@ -1,5 +1,5 @@
 <!-- Start Navbar Section -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
     <a class="navbar-brand" class="logo" href="https://whitehelmet.sa/"> WhiteHelmet </a>
     <button
@@ -16,12 +16,12 @@
     <div class="collapse navbar-collapse" id="mainmenu">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0 g-2">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/dashboard']"
+          <a class="nav-link active" aria-current="page" [routerLink]="['']"
             >Home</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+          <a class="nav-link" [routerLink]="['']">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/posts']">Posts</a>
@@ -38,5 +38,93 @@
       </form>
     </div>
   </div>
-</nav>
+</nav> -->
 <!-- End Navbar Section -->
+
+<div class="header-content">
+  <div class="container">
+    <header class="pt-5">
+      <div
+        class="top-header mb-5 d-flex align-items-start justify-content-between"
+      >
+        <div class="user-info d-flex align-items-start text-white gap-2">
+          <img
+            [ngSrc]="'assets/images/user.jpg'"
+            class="rounded-circle"
+            width="50"
+            height="50"
+            alt="User"
+          />
+          <div class="user-info-content">
+            <h2>Welcome Back, Brian!</h2>
+            <div class="user-info-notifications d-flex align-items-center">
+              <mat-icon>notifications</mat-icon>
+              <p class="mb-0">You have 2 new messages and 15 new tasks</p>
+            </div>
+          </div>
+        </div>
+        <div class="user-action d-flex gap-2">
+          <button class="btn-main" mat-flat-button>
+            <mat-icon>messenger</mat-icon>
+            Messages
+          </button>
+          <button class="btn-main btn-main-primary-link" mat-flat-button>
+            <mat-icon>settings</mat-icon>
+            Settings
+          </button>
+        </div>
+      </div>
+      <div class="bottom-header">
+        <button
+          class="btn-main btn-main-primary btn-main-pill-top"
+          mat-flat-button
+          [matMenuTriggerFor]="menu"
+        >
+          <span>ACME Corp Backend APP</span>
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>Option 1</span>
+          </button>
+          <button mat-menu-item>
+            <span>Option 2</span>
+          </button>
+          <button mat-menu-item>
+            <span>Option 3</span>
+          </button>
+        </mat-menu>
+      </div>
+    </header>
+  </div>
+</div>
+<nav class="header-nav mt-5">
+  <div class="container">
+    <ul class="nav nav-underline">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/budget']" routerLinkActive="active"
+          >Budget</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/team']" routerLinkActive="active"
+          >Team <span class="badge main-bg-primary-link rounded-circle">9</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/posts']" routerLinkActive="active"
+          >Post</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
