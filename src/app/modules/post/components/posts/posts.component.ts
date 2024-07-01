@@ -29,7 +29,7 @@ import { debounceTime } from 'rxjs/internal/operators/debounceTime';
     MatIconModule,
     ReactiveFormsModule,
   ],
-  providers: [HttpService, HttpClient],
+  providers: [HttpService],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss',
 })
@@ -39,7 +39,7 @@ export class PostsComponent {
   filteredPosts: IPost[] = [];
   private _http: HttpService = inject(HttpService);
   destroyRef: DestroyRef = inject(DestroyRef);
-  public searchControl: FormControl<string | null> = new FormControl('');
+  searchControl: FormControl<string | null> = new FormControl('');
 
   ngOnInit(): void {
     this.getAllPosts();

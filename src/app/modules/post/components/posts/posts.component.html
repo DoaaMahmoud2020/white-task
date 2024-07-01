@@ -31,9 +31,14 @@
         </div>
         } @placeholder {
         <div class="d-flex align-items-center justify-content-center">
-          <app-spinner-loading color="#eb4d4b" />
+          <app-spinner-loading color="#419187" />
         </div>
         }
+        @loading(minimum 1s) {
+          <div class="d-flex align-items-center justify-content-center">
+            <app-spinner-loading color="#419187" />
+          </div>
+          }
       </div>
     </div>
   </div>

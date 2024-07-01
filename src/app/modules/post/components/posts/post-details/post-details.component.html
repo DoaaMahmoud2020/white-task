@@ -39,9 +39,9 @@
               {{ post.body }}
             </p>
             <!-- Start Comments Section -->
-            <h3 class="text-start text-primary py-3">
+            <h3 class="text-start text-muted py-3">
               All Comments
-              <span class="text-danger">{{ comments.length }}</span>
+              <span class="text-primary">{{ comments.length }}</span>
             </h3>
             @for (comment of comments; track comment.id; let i = $index) {
             <div class="mb-3 row pt-3 text-md-start text-center comment-card">
@@ -59,11 +59,8 @@
               </div>
               <div class="col-md-8">
                 <h4 class="text-primary">{{ comment.name }}</h4>
-                <p class="text-primary">{{ comment.body }}</p>
+                <p class="text-muted">{{ comment.body }}</p>
               </div>
-              <!-- <div class="col-md-4">
-                <p>{{ comment.email }}</p>
-              </div> -->
               <div class="divider border-bottom"></div>
             </div>
             }
@@ -72,7 +69,7 @@
         </mat-card>
         } @placeholder {
         <div class="d-flex align-items-center justify-content-center">
-          <app-spinner-loading color="#eb4d4b" />
+          <app-spinner-loading color="#419187" />
         </div>
         }
       </div>
