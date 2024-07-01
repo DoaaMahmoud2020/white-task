@@ -5,11 +5,12 @@ import {
   SUMMARY_FOOTER_STATISTICS,
   SUMMARY_HEADER_STATISTICS,
 } from '@app/modules/dashboard/constants/dashoard-item.constant';
+import { DashboardChartsComponent } from '../dashboard-charts/dashboard-charts.component';
 
 @Component({
   selector: 'app-dashboard-statistics',
   standalone: true,
-  imports: [DashboardCardComponent],
+  imports: [DashboardCardComponent,DashboardChartsComponent],
   templateUrl: './dashboard-statistics.component.html',
   styleUrl: './dashboard-statistics.component.scss',
 })
