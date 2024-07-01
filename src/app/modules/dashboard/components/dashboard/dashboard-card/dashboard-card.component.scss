@@ -1,20 +1,20 @@
-@import 'variables';
-.statistics-card{
-  .card-header{
+@import "variables";
+.statistics-card {
+  height: 100%;
+  .card-header {
     font-weight: 700;
     color: $white;
-    .actions{
-      width: unset!important;
-      height: unset!important;
+    .actions {
+      width: unset !important;
+      height: unset !important;
       color: $gray;
     }
   }
-  .card-body{
-    .card-title{
+  .card-body {
+    .card-title {
       font-size: 4rem;
       font-weight: bold;
       margin-bottom: 4px;
     }
   }
-
 }
