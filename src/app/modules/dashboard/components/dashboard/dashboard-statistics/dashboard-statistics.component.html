@@ -1,0 +1,33 @@
+<div class="card summary-card p-3 rounded-4">
+  <div class="card-header d-flex align-items-start justify-content-between">
+    <h5 class="text-white">Github Issues Summary</h5>
+    <div class="user-action d-flex gap-2">
+      <button class="btn-main  text-secondary" mat-flat-button>Last Week</button>
+      <button class="btn-main btn-main-primary-link" mat-flat-button>
+        This Week
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <span>Overview</span>
+        <div class="row">
+          @for (statisticsItem of headerStatistics; track $index) {
+          <div class="col-md-6 mb-3">
+            <app-dashboard-card [config]="statisticsItem" />
+          </div>
+          }
+        </div>
+        <div class="row">
+          @for (statisticsItem of footerStatistics; track $index) {
+          <div class="col-md-3">
+            <app-dashboard-card [config]="statisticsItem" />
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

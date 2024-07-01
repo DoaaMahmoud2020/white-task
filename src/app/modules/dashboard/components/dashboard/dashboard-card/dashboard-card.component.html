@@ -1,1 +1,40 @@
-<p>dashboard-card works!</p>
+<div
+  class="card statistics-card p-3 rounded-4"
+  [class]="'main-bg-' + (config().bgColor || 'secondary')"
+>
+  @if (config().title || config().showActions) {
+  <div class="card-header d-flex align-items-start justify-content-between">
+    <h5>{{ config().title }}</h5>
+    <div>
+      <button class="p-0 actions" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Option 1</span>
+        </button>
+        <button mat-menu-item>
+          <span>Option 2</span>
+        </button>
+        <button mat-menu-item>
+          <span>Option 3</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  }
+  <div
+    class="card-body text-center"
+    [class]="'main-text-' + config().countColor"
+  >
+    <h3 class="card-title">{{ config().count }}</h3>
+    <p class="card-text">{{ config().countTitle }}</p>
+  </div>
+  <div class="card-footer text-center main-text-gray">
+    @if (config().hint && config().hintCount) {
+    <p>
+      {{ config().hint }}: <strong>{{ config().hintCount }}</strong>
+    </p>
+    }
+  </div>
+</div>
