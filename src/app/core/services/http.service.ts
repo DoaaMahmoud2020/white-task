@@ -11,7 +11,7 @@ import { IComment } from '@app/modules/post/models/comment.model';
 export class HttpService {
   private _httpClient: HttpClient = inject(HttpClient);
 
-  public getAll(params: any, apiUrl: string): Observable<any> {
+  public getAll(apiUrl: string): Observable<any> {
     const endpointUrl = `${API_URL(apiUrl)}`;
     return this._httpClient.get<IListPayload<any>>(endpointUrl);
   }

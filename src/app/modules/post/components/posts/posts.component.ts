@@ -47,7 +47,7 @@ export class PostsComponent {
   getAllPosts() {
     this.isLoading = true;
     this._postService
-      .getAll({}, 'posts')
+      .getAll('posts')
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         finalize(() => (this.isLoading = false))
