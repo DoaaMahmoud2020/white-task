@@ -7,13 +7,12 @@ import { NotFoundDataComponent } from '@app/shared/components/not-found-data/not
 import { HttpService } from '@app/core/services/http.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs/internal/operators/finalize';
-import { IListPayload } from '@app/shared/models/payload.model';
-import { HttpClient } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { debounceTime } from 'rxjs/internal/operators/debounceTime';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -37,7 +36,7 @@ export class PostsComponent {
   isLoading?: boolean;
   postsList: IPost[] = [];
   filteredPosts: IPost[] = [];
-  private _http: HttpService = inject(HttpService);
+  private _postService: PostService = inject(PostService);
   destroyRef: DestroyRef = inject(DestroyRef);
   searchControl: FormControl<string | null> = new FormControl('');
 
@@ -47,7 +46,7 @@ export class PostsComponent {
   }
   getAllPosts() {
     this.isLoading = true;
-    this._http
+    this._postService
       .getAll({}, 'posts')
       .pipe(
         takeUntilDestroyed(this.destroyRef),

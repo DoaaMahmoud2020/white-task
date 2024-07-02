@@ -4,15 +4,14 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { HttpService } from '@app/core/services/http.service';
 import { IComment } from '@app/modules/post/models/comment.model';
 import { IPost } from '@app/modules/post/models/post.model';
 import { IUser } from '@app/modules/post/models/user.model';
 import { SpinnerLoadingComponent } from '@app/shared/components/spinner-loading/spinner-loading.component';
-import { ISinglePayload } from '@app/shared/models/payload.model';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { CommentCardComponent } from '../comment-card/comment-card.component';
 import { NotFoundDataComponent } from '@app/shared/components/not-found-data/not-found-data.component';
+import { PostService } from '@app/modules/post/services/post.service';
 
 @Component({
   selector: 'app-post-details',
@@ -24,14 +23,14 @@ import { NotFoundDataComponent } from '@app/shared/components/not-found-data/not
     SpinnerLoadingComponent,
     NgOptimizedImage,
     CommentCardComponent,
-    NotFoundDataComponent
+    NotFoundDataComponent,
   ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.scss',
 })
 export class PostDetailsComponent {
   id = input.required<number>();
-  private _http: HttpService = inject(HttpService);
+  private _postService: PostService = inject(PostService);
   destroyRef: DestroyRef = inject(DestroyRef);
   isLoading!: boolean;
   post: IPost = {};
@@ -46,7 +45,7 @@ export class PostDetailsComponent {
   }
   getPostDetails() {
     this.isLoading = true;
-    this._http
+    this._postService
       .getItemById(this.id(), 'posts')
       .pipe(
         takeUntilDestroyed(this.destroyRef),
@@ -66,24 +65,22 @@ export class PostDetailsComponent {
   }
   getAllComments() {
     this.isLoading = true;
-    this._http
-      .getAll({}, 'comments')
+    this._postService
+      .getAllCommentsByPostId(this.id(), 'comments')
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         finalize(() => (this.isLoading = false))
       )
       .subscribe({
         next: (response: IComment[]) => {
-          this.comments = response.filter((m) => {
-            return m.postId == this.id();
-          });
+          this.comments = response;
         },
         error: (error: Error) => {},
       });
   }
   getUserDetails() {
     this.isLoading = true;
-    this._http
+    this._postService
       .getItemById(this.post.userId!, 'users')
       .pipe(
         takeUntilDestroyed(this.destroyRef),

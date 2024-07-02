@@ -2,11 +2,11 @@ import { Component, DestroyRef, effect, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
-import { HttpService } from '@app/core/services/http.service';
 import { IPost } from '@app/modules/post/models/post.model';
 import { IUser } from '@app/modules/post/models/user.model';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { MatIconModule } from '@angular/material/icon';
+import { PostService } from '@app/modules/post/services/post.service';
 
 @Component({
   selector: 'app-post-card',
@@ -17,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class PostCardComponent {
   post = input.required<IPost>();
-  private _http: HttpService = inject(HttpService);
+  private _postService: PostService = inject(PostService);
   destroyRef: DestroyRef = inject(DestroyRef);
   isLoading!: boolean;
   user?: IUser;
@@ -30,7 +30,7 @@ export class PostCardComponent {
   }
   getUserDetails() {
     this.isLoading = true;
-    this._http
+    this._postService
       .getItemById(this.post().userId!, 'users')
       .pipe(
         takeUntilDestroyed(this.destroyRef),
