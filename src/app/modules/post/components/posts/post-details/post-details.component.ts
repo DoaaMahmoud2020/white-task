@@ -11,6 +11,8 @@ import { IUser } from '@app/modules/post/models/user.model';
 import { SpinnerLoadingComponent } from '@app/shared/components/spinner-loading/spinner-loading.component';
 import { ISinglePayload } from '@app/shared/models/payload.model';
 import { finalize } from 'rxjs/internal/operators/finalize';
+import { CommentCardComponent } from '../comment-card/comment-card.component';
+import { NotFoundDataComponent } from '@app/shared/components/not-found-data/not-found-data.component';
 
 @Component({
   selector: 'app-post-details',
@@ -21,6 +23,8 @@ import { finalize } from 'rxjs/internal/operators/finalize';
     MatIconModule,
     SpinnerLoadingComponent,
     NgOptimizedImage,
+    CommentCardComponent,
+    NotFoundDataComponent
   ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.scss',

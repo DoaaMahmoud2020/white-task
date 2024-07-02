@@ -37,12 +37,5 @@
             @include image-cover(45px, 45px, 0px);
         }
     }
-    .comment-card {
-        background: $primary;
-        border-radius: 10px;
-        p {
-            color: $gray;
-            font-size: 1.1rem;
-        }
-    }
+
 }

@@ -33,23 +33,12 @@
               <span class="text-primary">{{ comments.length }}</span>
             </h3>
             @for (comment of comments; track comment.id; let i = $index) {
-            <div class="mb-3 row pt-3 text-md-start text-center comment-card">
-              <div
-                class="col-md-2 d-flex justify-content-center align-items-center"
-              >
-                <img
-                  [ngSrc]="
-                    'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'
-                  "
-                  width="50"
-                  height="50"
-                  class="image-cover"
-                />
-              </div>
-              <div class="col-md-8">
-                <h4 class="text-primary">{{ comment.name }}</h4>
-                <p>{{ comment.body }}</p>
-              </div>
+            <app-comment-card
+              [comment]="comment"
+            />
+            } @empty {
+            <div class="d-flex align-items-center justify-content-center">
+              <app-not-found-data />
             </div>
             }
             <!-- End Comments Section -->
