@@ -18,5 +18,10 @@
   .mat-mdc-form-field-icon-suffix > .mat-icon {
     color: $gray;
   }
+  .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input,
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    color: $gray;
+    font-size: 17px;
+  }
 }
 // End Section Posts

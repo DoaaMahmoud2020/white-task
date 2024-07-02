@@ -61,18 +61,18 @@ export class PostsComponent {
       });
   }
   onSuccess(response: IPost[]) {
-    this.postsList = response.filter((m) => {
-      return (m.userId === 1);
-    });
+    this.postsList = response;
     this.filteredPosts = this.postsList;
   }
   getAllPostsWithFilter(): void {
     this.searchControl.valueChanges
       .pipe(debounceTime(500), takeUntilDestroyed(this.destroyRef))
       .subscribe((response) => {
+        const searchValue = response?.toLowerCase() ?? '';
         this.filteredPosts = this.postsList.filter(
           (item) =>
-            item.body?.includes(response!) || item.title?.includes(response!)
+            item.body?.toLowerCase().includes(searchValue) ||
+            item.title?.toLowerCase().includes(searchValue)
         );
       });
   }
